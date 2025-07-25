@@ -33,6 +33,15 @@ export const createAppointment = createAsyncThunk(
   }
 );
 
+export const completeAppointment = createAsyncThunk(
+  "appointments/complete",
+  async (id: number) => {
+    const res = await api.post(`/appointments/${id}/complete/`);
+    return res.data;
+  }
+);
+
+
 const appointmentsSlice = createSlice({
   name: "appointments",
   initialState,
@@ -44,8 +53,14 @@ const appointmentsSlice = createSlice({
       })
       .addCase(createAppointment.fulfilled, (state, action) => {
         state.items.push(action.payload);
+      })
+      .addCase(completeAppointment.fulfilled, (state, action) => {
+        const index = state.items.findIndex((a) => a.id === action.payload.id);
+        if (index !== -1) {
+          state.items[index] = action.payload;
+        }
       });
-  },
+  }
 });
 
 export default appointmentsSlice.reducer;

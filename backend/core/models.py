@@ -17,6 +17,7 @@ class Appointment(models.Model):
         ("pending", "Pendente"),
         ("confirmed", "Confirmado"),
         ("cancelled", "Cancelado"),
+        ("completed", "Concluído"),
     ]
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
