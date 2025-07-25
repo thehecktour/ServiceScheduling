@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./app/store";
+import { GlobalStyle } from "./styles/GlobalStyle";
 
 import Auth from "./pages/Auth";
 import ServiceCatalog from "./pages/ServiceCatalog";
@@ -12,6 +13,7 @@ import PrivateRoute from "./components/PrivateRoute";
 export default function App() {
   return (
     <Provider store={store}>
+      <GlobalStyle />
       <BrowserRouter>
         <Routes>
           <Route path="/auth" element={<Auth />} />
