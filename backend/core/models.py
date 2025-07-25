@@ -1,4 +1,7 @@
 from django.db import models
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
 
 class Service(models.Model):
     name = models.CharField(max_length=100)
@@ -8,7 +11,6 @@ class Service(models.Model):
 
     def __str__(self):
         return self.name
-    
 
 class Appointment(models.Model):
     STATUS_CHOICES = [
@@ -16,7 +18,8 @@ class Appointment(models.Model):
         ("confirmed", "Confirmado"),
         ("cancelled", "Cancelado"),
     ]
-    user = models.ForeignKey(backend.src.settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     service = models.ForeignKey(Service, on_delete=models.CASCADE)
     date_time = models.DateTimeField()
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default="pending")
