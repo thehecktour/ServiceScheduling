@@ -1,7 +1,8 @@
-import { useState } from "react";
-import { useAppDispatch } from "../hooks";
+import { useState, useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "../hooks";
 import { login, register } from "../features/auth/authSlice";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 const SwitchButton = styled.button`
   background: transparent;
@@ -17,8 +18,16 @@ const SwitchButton = styled.button`
 
 export default function Auth() {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+  const token = useAppSelector((state) => state.auth.token);
   const [isLogin, setIsLogin] = useState(true);
   const [form, setForm] = useState({ username: "", password: "", email: "" });
+
+  useEffect(() => {
+    if (token) {
+      navigate("/"); // redireciona ao login bem-sucedido
+    }
+  }, [token, navigate]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
