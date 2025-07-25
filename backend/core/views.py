@@ -10,6 +10,7 @@ class ServiceViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated]
 
 class AppointmentViewSet(viewsets.ModelViewSet):
+    queryset = Appointment.objects.none()
     serializer_class = AppointmentSerializer
     permission_classes = [IsAuthenticated, IsOwnerOrAdmin]
 
