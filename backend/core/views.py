@@ -1,7 +1,7 @@
-from rest_framework import viewsets
-from rest_framework.permissions import IsAuthenticated, IsAdminUser
+from rest_framework import viewsets, generics
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from .models import Service, Appointment
-from .serializers import ServiceSerializer, AppointmentSerializer
+from .serializers import ServiceSerializer, AppointmentSerializer, UserRegistrationSerializer
 from .permissions import IsOwnerOrAdmin
 
 class ServiceViewSet(viewsets.ModelViewSet):
@@ -21,3 +21,7 @@ class AppointmentViewSet(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
+
+class UserRegistrationView(generics.CreateAPIView):
+    serializer_class = UserRegistrationSerializer
+    permission_classes = [AllowAny]
