@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../hooks";
-import { fetchServices } from "../features/services/servicesSlice";
+import { fetchServices } from "../features/services/servicesSlice.ts";
 import { createAppointment } from "../features/appointments/appointmentsSlice";
 
 export default function AppointmentForm() {

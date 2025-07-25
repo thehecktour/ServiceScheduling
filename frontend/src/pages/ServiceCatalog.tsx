@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../hooks";
-import { fetchServices } from "../features/services/servicesSlice";
+import { fetchServices } from "../features/services/servicesSlice.ts";
 
 export default function ServiceCatalog() {
   const dispatch = useAppDispatch();
