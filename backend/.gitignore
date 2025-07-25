@@ -1,0 +1,105 @@
+# =====================================
+# Python general
+# =====================================
+__pycache__/           # Compiled bytecode cache
+*.py[cod]              # Compiled Python files
+*$py.class             # Another form of compiled files
+*.pyo                  # Python optimized bytecode
+*.pyd                  # Windows DLL files
+*.pyc                  # Python bytecode
+
+# Ignore pip environment files
+*.env
+*.venv
+venv/
+ENV/
+env/
+.venv/
+
+# Ignore Jupyter Notebook checkpoints (if used)
+.ipynb_checkpoints
+
+# Ignore test coverage reports
+htmlcov/
+.coverage
+.tox/
+.nox/
+.cache
+coverage.xml
+nosetests.xml
+*.cover
+*.log
+
+# Ignore MyPy, Pyre and Pyright type checker files
+.mypy_cache/
+.dmypy.json
+.pyre/
+.pyright/
+
+# =====================================
+# Django-specific
+# =====================================
+*.log                    # Log files
+local_settings.py        # Local Django settings (if used)
+db.sqlite3               # SQLite database
+db.sqlite3-journal       # SQLite journal file
+media/                   # User-uploaded media
+staticfiles/             # Collected static files (via collectstatic)
+static/                  # Optional: if static files are generated here
+*.pot
+*.mo
+
+# =====================================
+# Secrets and credentials
+# =====================================
+*.pem                    # SSL private keys or certs
+*.key
+secrets.json             # Custom secrets file
+.env                     # Environment variables (dotenv)
+.env.*                   # Additional env files like .env.prod, .env.dev
+
+# =====================================
+# Editor and IDE files
+# =====================================
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# Sublime Text
+*.sublime-workspace
+*.sublime-project
+
+# Emacs
+*~
+.*.swp
+
+# Vim
+*.swp
+*.swo
+.session
+
+# =====================================
+# OS-generated files
+# =====================================
+.DS_Store               # macOS Finder metadata
+Thumbs.db               # Windows thumbnail cache
+ehthumbs.db             # Windows Explorer cache
+Desktop.ini             # Windows desktop file
+
+# =====================================
+# Deployment-related files
+# =====================================
+*.bak
+*.orig
+*.tmp
+*.old
+
+# =====================================
+# Docker-related (if using)
+# =====================================
+docker-compose.override.yml
+docker-compose.*.yml
+*.log
+*.pid
