@@ -1,6 +1,19 @@
 import { useState } from "react";
-import { useAppDispatch, useAppSelector } from "../hooks";
+import { useAppDispatch } from "../hooks";
 import { login, register } from "../features/auth/authSlice";
+import styled from "styled-components";
+
+const SwitchButton = styled.button`
+  background: transparent;
+  color: #007bff;
+  margin-top: 10px;
+  border: none;
+  text-decoration: underline;
+
+  &:hover {
+    color: #0056b3;
+  }
+`;
 
 export default function Auth() {
   const dispatch = useAppDispatch();
@@ -39,9 +52,9 @@ export default function Auth() {
         />
       )}
       <button type="submit">{isLogin ? "Entrar" : "Cadastrar"}</button>
-      <button type="button" onClick={() => setIsLogin(!isLogin)}>
+      <SwitchButton type="button" onClick={() => setIsLogin(!isLogin)}>
         {isLogin ? "Criar Conta" : "Já tenho conta"}
-      </button>
+      </SwitchButton>
     </form>
   );
 }

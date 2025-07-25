@@ -1,6 +1,12 @@
 import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../hooks";
 import { fetchAppointments } from "../features/appointments/appointmentsSlice";
+import styled from "styled-components";
+
+const Container = styled.div`
+  max-width: 600px;
+  margin: 0 auto;
+`;
 
 export default function History() {
   const dispatch = useAppDispatch();
@@ -11,7 +17,7 @@ export default function History() {
   }, []);
 
   return (
-    <div>
+    <Container>
       <h2>Histórico de Agendamentos</h2>
       <ul>
         {appointments.map((a) => (
@@ -20,6 +26,6 @@ export default function History() {
           </li>
         ))}
       </ul>
-    </div>
+    </Container>
   );
 }

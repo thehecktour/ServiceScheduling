@@ -1,6 +1,12 @@
 import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../hooks";
 import { fetchServices } from "../features/services/servicesSlice.ts";
+import styled from "styled-components";
+
+const Container = styled.div`
+  max-width: 600px;
+  margin: 0 auto;
+`;
 
 export default function ServiceCatalog() {
   const dispatch = useAppDispatch();
@@ -11,7 +17,7 @@ export default function ServiceCatalog() {
   }, []);
 
   return (
-    <div>
+    <Container>
       <h2>Catálogo de Serviços</h2>
       <ul>
         {services.map((s) => (
@@ -20,6 +26,6 @@ export default function ServiceCatalog() {
           </li>
         ))}
       </ul>
-    </div>
+    </Container>
   );
 }

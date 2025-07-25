@@ -20,7 +20,10 @@ export default function AppointmentForm() {
   return (
     <form onSubmit={handleSubmit}>
       <h2>Agendar Serviço</h2>
-      <select onChange={(e) => setForm({ ...form, service: Number(e.target.value) })}>
+      <select
+        onChange={(e) => setForm({ ...form, service: Number(e.target.value) })}
+        value={form.service}
+      >
         {services.map((s) => (
           <option key={s.id} value={s.id}>
             {s.name}
