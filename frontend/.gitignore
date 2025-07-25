@@ -1,24 +1,78 @@
-# Logs
-logs
-*.log
+# Node.js
+node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
-lerna-debug.log*
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
 
-node_modules
-dist
-dist-ssr
-*.local
+# Vite
+dist/
+.vite/
+.vite-cache/
 
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
+# TypeScript
+*.tsbuildinfo
+
+# Logs
+*.log
+*.log.*
+logs/
+
+# Editor folders
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# OS-specific
 .DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+Thumbs.db
+
+# Env files
+.env
+.env.*.local
+.env.local
+
+# Testing
+coverage/
+*.lcov
+jest-cache/
+jest-config.json
+.vitest/
+
+# Linting
+.eslintcache
+
+# Build
+build/
+
+# MacOS system files
+.AppleDouble
+.LSOverride
+Icon?
+
+# Windows system files
+ehthumbs.db
+Desktop.ini
+
+# Parcel / other bundlers (in case)
+.cache/
+
+# Storybook (caso esteja usando)
+storybook-static/
+out/
+
+# Turbo / Nx / monorepo tools (caso use)
+turbo/
+nx-cache/
+
+# Optional: Ignore React devtools extensions injected files
+react-devtools*
+
+# Optional: local DB or mock files
+*.sqlite
+*.sqlite-journal
+mock-server/
