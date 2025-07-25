@@ -9,6 +9,7 @@ import AppointmentForm from "./pages/AppointmentForm";
 import History from "./pages/History";
 import AdminDashboard from "./pages/AdminDashboard";
 import PrivateRoute from "./components/PrivateRoute";
+import Layout from "./components/Layout";
 
 export default function App() {
   return (
@@ -18,10 +19,12 @@ export default function App() {
         <Routes>
           <Route path="/auth" element={<Auth />} />
           <Route element={<PrivateRoute />}>
-            <Route path="/" element={<ServiceCatalog />} />
-            <Route path="/agendar" element={<AppointmentForm />} />
-            <Route path="/historico" element={<History />} />
-            <Route path="/admin" element={<AdminDashboard />} />
+            <Route element={<Layout />}>
+              <Route path="/" element={<ServiceCatalog />} />
+              <Route path="/agendar" element={<AppointmentForm />} />
+              <Route path="/historico" element={<History />} />
+              <Route path="/admin" element={<AdminDashboard />} />
+            </Route>
           </Route>
         </Routes>
       </BrowserRouter>
